@@ -1,0 +1,13 @@
+services:
+  gdp-dashboard:
+    build: .
+    image: gdp-dashboard:latest
+    container_name: gdp-dashboard
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8501}:8501"
+    environment:
+      - PORT=8501
+    # 비밀값이 필요해지면 저장소에 커밋하지 말고 .env 파일(또는 배포 환경 변수)로 주입하세요.
+    # env_file:
+    #   - .env
